@@ -1,0 +1,63 @@
+.callout {
+  margin-top: 20px;
+
+}
+h2 {
+  text-align: center;
+}
+h3 {
+  text-align: center;
+}
+table {
+  width: 100%;
+}
+
+.centered
+{
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 16px;
+}
+
+.console-background
+{
+  background: #3E4547;
+}
+.console
+{
+  background-color: transparent;
+  color: #fff;
+  font-size: 1em;
+}
+
+@keyframes code_animation
+{
+  from {width: 100%;}
+  to {width: 50%;}
+}
+
+.code_anim
+{
+    animation: 0.25s code_animation linear;
+}
+
+@keyframes show_output
+{
+  from {width: 0;}
+  to {width: 50%;}
+}
+
+
+.output-show
+{
+  display: block;
+  animation: 0.25s show_output linear;
+}
+.output-hidden
+{
+  display: none;
+}
+
+.console:focus {
+  background: #3E4547;
+}

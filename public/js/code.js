@@ -1,11 +1,25 @@
 $(document).ready(function()
 {
-
   $('button[name=submit]').click(function()
   {
     if ($('textarea').val() != '')
+    {
       set_code();
+      show_output();
+    }
   });
+
+  function show_output()
+  {
+    console.log('test');
+    $('#code').attr('cols', '20');
+    $('#code').parent().removeClass('medium-12');
+    $('#code').parent().addClass('medium-6');
+    $('#code').parent().addClass('code_anim');
+
+    $('#output').parent().removeClass('output-hidden');
+    $('#output').parent().addClass('output-show');
+  }
 
   function set_code()
   {
