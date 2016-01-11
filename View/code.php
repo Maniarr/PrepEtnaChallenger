@@ -11,11 +11,11 @@
 
     <div id="code" class="">
       <textarea name="name" rows="8" cols="40"></textarea>
-      <button type="button" name="button">Execute</button>
+      <button type="button" name="submit">Execute</button>
     </div>
 
     <div id="output" class="">
-
+      <textarea name="name" rows="8" cols="40"></textarea>
     </div>
 
 
