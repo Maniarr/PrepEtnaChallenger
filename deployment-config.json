@@ -1,9 +1,0 @@
-{
-    "type": "sftp",
-    "host": "localhost",
-    "username": "zoidberg",
-    "password": "password",
-    "port": 2222,
-    "remotePath": "/var/www/PrepChallenger",
-    "uploadOnSave": true
-}
