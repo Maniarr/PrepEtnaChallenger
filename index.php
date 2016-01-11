@@ -11,6 +11,9 @@ $router = new Router();
 
 $router->get('/', 'PageController::code');
 
+
+$router->post('/code', 'PhpController::compile');
+
 $router->add_404('PageController::route_404');
 
 $router->run();
