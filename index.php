@@ -10,6 +10,7 @@ Autoload::load($load);
 $router = new Router();
 
 $router->get('/', 'PageController::code');
+$router->get('/score', 'PageController::score');
 
 $router->add_404('PageController::route_404');
 
