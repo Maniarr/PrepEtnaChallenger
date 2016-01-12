@@ -10,26 +10,19 @@ class PhpController extends Controller
     fwrite($file, $_POST['code']);
     fclose($file);
 
-
     $dp_mp = $this->get_average_execute($file_name, 'script/php_file/message script/php_file/dico', 1);
-    $dp_mg = $this->get_average_execute($file_name, 'script/php_file/message script/php_file/dico', 5);
-    $dg_mp = $this->get_average_execute($file_name, 'script/php_file/message script/php_file/dico', 5);
-    $dg_mg = $this->get_average_execute($file_name, 'script/php_file/message script/php_file/dico', 5);
+    $dp_mg = $this->get_average_execute($file_name, 'script/php_file/message2 script/php_file/dico', 2);
+    $dg_mp = $this->get_average_execute($file_name, 'script/php_file/message script/php_file/dico2', 3);
+    $dg_mg = $this->get_average_execute($file_name, 'script/php_file/message2 script/php_file/dico2', 4);
+
+    if (!$dp_mp || !$dp_mg || !$dg_mp || !$dg_mg)
+    {
+        echo  json_encode('false');
+        return;
+    }
+
 
     $score = ($dp_mp + $dp_mg + $dg_mp + $dg_mg) / 4;
-
-    $file_out = fopen($file_name.'out', 'c+');
-    $output = fread($file_out, filesize($file_name.'out') + 1);
-    fclose($file_out);
-
-    print_r(array(
-        ':name' => htmlspecialchars($_POST['name']),
-        ':dp_mp' => $dp_mp,
-        ':dp_mg' => $dp_mg,
-        ':dg_mp' => $dg_mp,
-        ':dg_mg' => $dg_mg,
-        ':score' => $score
-    ));
 
     $req = $this->db->prepare('INSERT INTO projet_nox(name, dp_mp, dp_mg, dg_mp, dg_mg, score) VALUES (:name, :dp_mp, :dp_mg, :dg_mp, :dg_mg, :score)');
     $req->execute(array(
@@ -47,18 +40,33 @@ class PhpController extends Controller
     unlink($file_name.'out');
   }
 
-  private function get_average_execute($file_name, $params, $timeout, $nb_loop = 50)
+  private function get_average_execute($file_name, $params, $step)
   {
+    $nb_loop = 1;
     $time_exec = 0;
+    $error = false;
 
-    for ($i = 0; $i < $nb_loop; $i++)
+    for ($i = 0; $i < $nb_loop && !$error; $i++)
     {
       $time = microtime(true);
-      exec('timeout php '.$file_name.' '.$params.' > '.$file_name.'out', $tmp);
+      exec('php '.$file_name.' '.$params.' > '.$file_name.'out', $tmp);
       $time_exec += (microtime(true) - $time);
-    }
 
-    return ($time_exec / $nb_loop);
+      $file_out = fopen($file_name.'out', 'r');
+      $output = fread($file_out, filesize($file_name.'out') + 1);
+      fclose($file_out);
+
+      $verif = shell_exec('cat '.$file_name.'out | wc -l');
+
+      var_dump($verif);
+
+      if ($step == 1 && $verif != "5\n")
+        $error = true;
+    }
+    if ($error)
+      return (false);
+    else
+      return ($time_exec / $nb_loop);
   }
 
   private function get_file_name()
