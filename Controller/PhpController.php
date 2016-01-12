@@ -88,4 +88,13 @@ class PhpController extends Controller
 	  $json = json_encode($top->fetchAll());
 	  echo $json;
   }
+
+  function search($name) {
+	  if (strlen($name) > 20)
+		  return (false);
+	  echo $name;
+	  $score = $this->db->prepare('SELECT score FROM projet_nox WHERE name = :name');
+	  $score->bindParam(':name', $name, PDO::PARAMSTR, 30);
+	  $score->execute();
+  }
 }
