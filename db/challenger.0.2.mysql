@@ -1,0 +1,16 @@
+CREATE DATABASE challenger;
+
+USE challenger;
+CREATE TABLE projet_nox (
+id INT AUTO_INCREMENT,
+name VARCHAR(30),
+dp_mp VARCHAR(30),
+dp_mg VARCHAR(30),
+dg_mp VARCHAR(30),
+dg_mg VARCHAR(30),
+score VARCHAR(30),
+created_at DATETIME default CURRENT_TIMESTAMP
+);
+
+INSERT INTO projet_nox
+VALUES ('Flavien', '0.032s', '0.052s', '0.017s', '0.093s', '0.043s'); 
