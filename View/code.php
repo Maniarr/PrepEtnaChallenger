@@ -27,7 +27,7 @@
       </div>
       <div class="columns medium-6 output-hidden">
         <div id="output" class="console-background">
-          <textarea class="console" name="name" rows="20" cols="20"></textarea>
+          <textarea class="console" name="name" rows="20" cols="20" disabled></textarea>
         </div>
       </div>
     </div>

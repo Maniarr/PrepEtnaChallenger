@@ -19,6 +19,7 @@ $(document).ready(function()
 
     $('#output').parent().removeClass('output-hidden');
     $('#output').parent().addClass('output-show');
+    $('#output textarea').addClass('output-wait');
   }
 
   function set_code()

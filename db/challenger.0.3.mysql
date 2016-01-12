@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS `projet_nox` (
+`id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `dp_mp` varchar(30) NOT NULL,
+  `dp_mg` varchar(30) NOT NULL,
+  `dg_mp` varchar(30) NOT NULL,
+  `dg_mg` varchar(30) NOT NULL,
+  `score` varchar(30) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `projet_nox`
+ ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `projet_nox`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;

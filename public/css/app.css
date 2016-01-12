@@ -35,10 +35,27 @@ table {
   from {width: 100%;}
   to {width: 50%;}
 }
-
+@-webkit-keyframes code_animation
+{
+  from {width: 100%;}
+  to {width: 50%;}
+}
+@-moz-keyframes code_animation
+{
+  from {width: 100%;}
+  to {width: 50%;}
+}
+@-o-keyframes code_animation
+{
+  from {width: 100%;}
+  to {width: 50%;}
+}
 .code_anim
 {
-    animation: 0.25s code_animation linear;
+  animation: 0.25s code_animation linear;
+  -webkit-animation: 0.25s code_animation linear;
+  -moz-animation: 0.25s code_animation linear;
+  -o-animation: 0.25s code_animation linear;
 }
 
 @keyframes show_output
@@ -46,18 +63,41 @@ table {
   from {width: 0;}
   to {width: 50%;}
 }
-
-
+@-webkit-keyframes show_output
+{
+  from {width: 0;}
+  to {width: 50%;}
+}
+@-moz-keyframes show_output
+{
+  from {width: 0;}
+  to {width: 50%;}
+}
+@-o-keyframes show_output
+{
+  from {width: 0;}
+  to {width: 50%;}
+}
 .output-show
 {
   display: block;
   animation: 0.25s show_output linear;
+  -webkit-animation: 0.25s show_output linear;
+  -moz-animation: 0.25s show_output linear;
+  -o-animation: 0.25s show_output linear;
 }
+
 .output-hidden
 {
   display: none;
 }
 
-.console:focus {
-  background: #3E4547;
+.console:focus, .console:disabled
+{
+  background-color: #3E4547;
+}
+
+.show_output
+{
+  background: url('../img/loader.gif');
 }
