@@ -11,6 +11,7 @@ $router = new Router();
 
 $router->get('/', 'PageController::code');
 $router->get('/score', 'PageController::score');
+$router->get('/top/{number}', 'PhpController::top');
 
 
 $router->post('/code', 'PhpController::compile');

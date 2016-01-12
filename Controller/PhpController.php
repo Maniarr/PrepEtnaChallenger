@@ -40,4 +40,15 @@ class PhpController extends Controller
 
     return ($file_name);
   }
+
+  function top($number) {
+	  if (intval($number) <= 0 && intval($number) > 30)
+		  return (false);
+	  $number = intval($number);
+	  $top = $this->db->prepare('SELECT name, dp_mp, dp_mg, dg_mp, dg_mg, score, created_at FROM projet_nox ORDER BY score ASC LIMIT :num');
+	  $top->bindParam(':num', $number, PDO::PARAM_INT);
+	  $top->execute();
+	  $json = json_encode($top->fetchAll());
+	  echo $json;
+  }
 }
