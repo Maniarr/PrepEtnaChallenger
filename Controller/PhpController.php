@@ -23,17 +23,41 @@ class PhpController extends Controller
 
     $score = ($dp_mp + $dp_mg + $dg_mp + $dg_mg) / 4;
 
-    $req = $this->db->prepare('INSERT INTO projet_nox(name, dp_mp, dp_mg, dg_mp, dg_mg, score) VALUES (:name, :dp_mp, :dp_mg, :dg_mp, :dg_mg, :score)');
+    $req = $this->db->prepare('SELECT id, score FROM projet_nox WHERE name = :name');
     $req->execute(array(
-        ':name' => htmlspecialchars($_POST['name']),
-        ':dp_mp' => $dp_mp,
-        ':dp_mg' => $dp_mg,
-        ':dg_mp' => $dg_mp,
-        ':dg_mg' => $dg_mg,
-        ':score' => $score
+        ':name' => htmlspecialchars($_POST['name'])
     ));
+    $result = $req->fetch();
+    if ($result)
+    {
+      var_dump(floatval($result['score']));
+      if (floatval($result['score']) > $score)
+      {
+        $req = $this->db->prepare('UPDATE projet_nox SET dp_mp = :dp_mp, dg_mp = :dg_mp, dp_mg = :dp_mg, dg_mg = :dg_mg, score = :score WHERE name = :name');
+        $req->execute(array(
+            ':name' => htmlspecialchars($_POST['name']),
+            ':dp_mp' => $dp_mp,
+            ':dp_mg' => $dp_mg,
+            ':dg_mp' => $dg_mp,
+            ':dg_mg' => $dg_mg,
+            ':score' => $score
+        ));
+      }
+    }
+    else
+    {
+      $req = $this->db->prepare('INSERT INTO projet_nox(name, dp_mp, dp_mg, dg_mp, dg_mg, score) VALUES (:name, :dp_mp, :dp_mg, :dg_mp, :dg_mg, :score)');
+      $req->execute(array(
+          ':name' => htmlspecialchars($_POST['name']),
+          ':dp_mp' => $dp_mp,
+          ':dp_mg' => $dp_mg,
+          ':dg_mp' => $dg_mp,
+          ':dg_mg' => $dg_mg,
+          ':score' => $score
+      ));
+    }
 
-    echo json_encode(array('average' => $score));
+    echo json_encode('true');
 
     unlink($file_name);
     unlink($file_name.'out');

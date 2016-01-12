@@ -18,11 +18,14 @@ $(document).ready(function()
     $('#code').attr('cols', '20');
     $('#code').parent().removeClass('medium-12');
     $('#code').parent().addClass('medium-6');
+    if ($('#code').parent().hasClass('code_anim_inverted'))
+      $('#code').parent().removeClass('code_anim_inverted');
     $('#code').parent().addClass('code_anim');
 
     $('#output').parent().removeClass('output-hidden');
     $('#output').parent().addClass('output-show');
     $('#output textarea').addClass('output-wait');
+    $('#output textarea').hide();
   }
 
   function set_code()
@@ -34,12 +37,21 @@ $(document).ready(function()
        data: {name: $('input[name=login]').val(),code: $('textarea').val()},
        success: function(data)
        {
+         console.log(data);
          $('#output textarea').show();
          write_output(data);
          $('.waiter').hide();
          if (data == 'false')
-          $(location).attr('href', url)
-
+         {
+           $('button[name=submit]').show();
+           $('#code').parent().removeClass('medium-6');
+           $('#code').parent().addClass('medium-12');
+           $('#code').parent().removeClass('code_anim');
+           $('#code').parent().addClass('code_anim_inverted');
+           $('#error').text('Votre script PHP présente des erreurs !');
+         }
+         else
+          $(location).attr('href', url);
        }
      });
   }

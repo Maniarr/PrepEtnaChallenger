@@ -30,6 +30,34 @@ table {
   font-size: 1em;
 }
 
+@keyframes code_animation_inverted
+{
+  from {width: 50%;}
+  to {width: 100%;}
+}
+@-webkit-keyframes code_animation_inverted
+{
+  from {width: 50%;}
+  to {width: 100%;}
+}
+@-moz-keyframes code_animation_inverted
+{
+  from {width: 50%;}
+  to {width: 100%;}
+}
+@-o-keyframes code_animation_inverted
+{
+  from {width: 50%;}
+  to {width: 100%;}
+}
+.code_anim_inverted
+{
+  animation: 0.25s code_animation_inverted linear;
+  -webkit-animation: 0.25s code_animation_inverted linear;
+  -moz-animation: 0.25s code_animation_inverted linear;
+  -o-animation: 0.25s code_animation_inverted linear;
+}
+
 @keyframes code_animation
 {
   from {width: 100%;}

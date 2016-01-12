@@ -21,20 +21,25 @@
     </div>
     <div class="row">
     <div class="columns medium-12">
+      <p id="error" class="center" style="text-align: center; color: red">
+
+      </p>
       <div class="center">
-          <input type="text" name="login" value="" placeholder="login_r">
+          <input type="text" name="login" value="" placeholder="login_l" required>
       </div>
     </div>
       <div class="columns medium-12">
         <div id="code" class="">
-          <textarea name="name" rows="20" cols="40"></textarea>
+          <textarea name="name" rows="20" cols="40" required></textarea>
         </div>
       </div>
       <div class="columns medium-6 output-hidden">
         <div id="output" class="console-background">
-          <textarea class="console" name="name" rows="20" cols="20" disabled></textarea>
         </div>
         <div class="waiter center">
+          <p  style="text-align: center;">
+            Les test peuvent durer jusqu'a 5 minutes.
+          </p>
           <img src="<?php $this->asset('img/loader.gif') ?> " alt="" />
         </div>
       </div>
