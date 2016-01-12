@@ -94,7 +94,7 @@ class PhpController extends Controller
 		  return (false);
 	  echo $name;
 	  $score = $this->db->prepare('SELECT score FROM projet_nox WHERE name = :name');
-	  $score->bindParam(':name', $name, PDO::PARAMSTR, 30);
+	  $score->bindParam(':name', $name, PDO::PARAM_STR, 30);
 	  $score->execute();
   }
 }
