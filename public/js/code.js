@@ -30,7 +30,7 @@ $(document).ready(function()
     $.ajax({
        url: url + 'code',
        method: 'POST',
-       //dataType: 'json',
+       dataType: 'json',
        data: {name: $('input[name=login]').val(),code: $('textarea').val()},
        success: function(data)
        {
