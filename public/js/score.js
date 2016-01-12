@@ -1,9 +1,8 @@
 var main = function() {
-	$(".top").click(function() {
-		$('.disabled').removeClass('disabled');
-		$(this).addClass('disabled');
+
+	var showTop = function(number) {
 		$.ajax({
-			url: url + 'top/' + $(this).attr('top'),
+			url: url + 'top/' + number,
 			method: 'GET',
 			dataType: 'json',
 			success: function(data) {
@@ -23,10 +22,11 @@ var main = function() {
 				}
 			}
 		});
+	};
 
-	});
+	showTop(10);
 
-	$("#search").click(function() {
+	var search = function(name) {
 		$('.disabled').removeClass('disabled');
 		$.ajax({
 			url: url + 'search/' + $('#name').val(),
@@ -75,6 +75,16 @@ var main = function() {
 				}
 			}
 		});
+	};
+
+	$(".top").click(function() {
+		$('.disabled').removeClass('disabled');
+		$(this).addClass('disabled');
+		showTop($(this).attr('top'));
+	});
+
+	$("#search").click(function() {
+		search($('#name').val());
 	});
 
 	$("#challenge").click(function() {

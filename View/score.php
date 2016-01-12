@@ -38,7 +38,7 @@
 			<div class="large-8 columns">
 				<div class="button-group">
 					<button top=5 class="button top">Top 5</button>
-					<button top=10 class="button top">Top 10</button>
+					<button top=10 class="button top disabled">Top 10</button>
 					<button top=20 class="button top">Top 20</button>
 				</div>
 			</div>
@@ -81,6 +81,10 @@
 		</div>
 	</div>
 </div>
+
+<?php
+echo $_GET['name'];
+?>
 
 <script type="text/javascript">
 var url = '<?php $this->url(''); ?>';

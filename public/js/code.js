@@ -51,7 +51,7 @@ $(document).ready(function()
            $('#error').text('Votre script PHP présente des erreurs !');
          }
          else
-          $(location).attr('href', url);
+          $(location).attr('href', url + '?name=' + $('input[name=login]').val());
        }
      });
   }
