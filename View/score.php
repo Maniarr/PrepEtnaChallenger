@@ -104,5 +104,6 @@
 
 <script src="<?php $this->asset('js/jquery-2.1.4.js') ?>" charset="utf-8"></script>
 <script src="<?php $this->asset('js/code.js') ?>" charset="utf-8"></script>
+<script src="<?php $this->asset('js/score.js') ?>" charset="utf-8"></script>
 </body>
 </html>
