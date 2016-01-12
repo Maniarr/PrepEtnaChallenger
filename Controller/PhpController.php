@@ -21,7 +21,6 @@ class PhpController extends Controller
         return;
     }
 
-
     $score = ($dp_mp + $dp_mg + $dg_mp + $dg_mg) / 4;
 
     $req = $this->db->prepare('INSERT INTO projet_nox(name, dp_mp, dp_mg, dg_mp, dg_mg, score) VALUES (:name, :dp_mp, :dp_mg, :dg_mp, :dg_mg, :score)');

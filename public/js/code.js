@@ -15,7 +15,6 @@ $(document).ready(function()
 
   function show_output()
   {
-    console.log('test');
     $('#code').attr('cols', '20');
     $('#code').parent().removeClass('medium-12');
     $('#code').parent().addClass('medium-6');
@@ -38,13 +37,15 @@ $(document).ready(function()
          $('#output textarea').show();
          write_output(data);
          $('.waiter').hide();
+         if (data == 'false')
+          $(location).attr('href', url)
+
        }
      });
   }
 
   function write_output(data)
   {
-    console.log(data.output);
     $('#output textarea').empty();
     $('#output textarea').val(data.output);
   }

@@ -78,7 +78,7 @@ var main = function() {
 	});
 
 	$("#challenge").click(function() {
-		window.location.href = url + '/code';
+		$(location).attr('href', url + 'code');
 	});
 
 };
