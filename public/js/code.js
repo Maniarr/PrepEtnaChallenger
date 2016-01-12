@@ -1,11 +1,14 @@
 $(document).ready(function()
 {
+  $('.waiter').hide();
   $('button[name=submit]').click(function()
   {
-    if ($('textarea').val() != '')
+    if ($('textarea').val() != '' && $('input[name=login]').val() != '')
     {
       set_code();
       show_output();
+      $('.waiter').show();
+      $('#output textarea').hide();
     }
   });
 
@@ -27,18 +30,21 @@ $(document).ready(function()
     $.ajax({
        url: url + 'code',
        method: 'POST',
-       dataType: 'json',
-       data: {code: $('textarea').val()},
+       //dataType: 'json',
+       data: {name: $('input[name=login]').val(),code: $('textarea').val()},
        success: function(data)
        {
+         console.log(data);
+         $('#output textarea').show();
          write_output(data);
+         $('.waiter').hide();
        }
      });
   }
 
   function write_output(data)
   {
-    console.log(data);
+    console.log(data.output);
     $('#output textarea').empty();
     $('#output textarea').val(data.output);
   }

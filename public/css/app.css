@@ -97,7 +97,8 @@ table {
   background-color: #3E4547;
 }
 
-.show_output
+.waiter img
 {
-  background: url('../img/loader.gif');
+  display: block;
+  margin: 0 auto;
 }
