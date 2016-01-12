@@ -92,9 +92,32 @@ class PhpController extends Controller
   function search($name) {
 	  if (strlen($name) > 20)
 		  return (false);
-	  echo $name;
-	  $score = $this->db->prepare('SELECT score FROM projet_nox WHERE name = :name');
-	  $score->bindParam(':name', $name, PDO::PARAM_STR, 30);
-	  $score->execute();
+
+	  $player = $this->db->prepare('SELECT name, dp_mp, dp_mg, dg_mp, dg_mg, score, created_at FROM projet_nox WHERE name = :name');
+	  $player->bindParam(':name', $name, PDO::PARAM_STR, 30);
+	  $player->execute();
+	  $player = $player->fetch();
+
+	  $hight = $this->db->prepare('SELECT name, dp_mp, dp_mg, dg_mp, dg_mg, score, created_at FROM projet_nox WHERE :player_score > score ORDER BY score DESC LIMIT 4');
+	  $hight->bindParam(':player_score', $player["score"]);
+	  $hight->execute();
+	  $hight = $hight->fetchAll();
+
+	  $lower = $this->db->prepare('SELECT name, dp_mp, dp_mg, dg_mp, dg_mg, score, created_at FROM projet_nox WHERE :player_score < score ORDER BY score ASC LIMIT 4');
+	  $lower->bindParam(':player_score', $player["score"]);
+	  $lower->execute();
+	  $lower = $lower->fetchAll();
+
+	  $position = $this->db->prepare('SELECT COUNT(score) FROM projet_nox WHERE :player_score >= score');
+	  $position->bindParam(':player_score', $player["score"]);
+	  $position->execute();
+	  $position = intval($position->fetch()[0]);
+
+	  $output = array(
+		  "player" => $player,
+		  "hight" => $hight,
+		  "lower" => $lower,
+		  "position" => $position);
+	  echo json_encode($output);
   }
 }
