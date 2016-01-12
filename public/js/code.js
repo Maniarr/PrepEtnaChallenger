@@ -9,6 +9,7 @@ $(document).ready(function()
       show_output();
       $('.waiter').show();
       $('#output textarea').hide();
+      $('button[name=submit]').hide();
     }
   });
 
@@ -34,7 +35,6 @@ $(document).ready(function()
        data: {name: $('input[name=login]').val(),code: $('textarea').val()},
        success: function(data)
        {
-         console.log(data);
          $('#output textarea').show();
          write_output(data);
          $('.waiter').hide();

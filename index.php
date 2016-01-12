@@ -9,8 +9,8 @@ Autoload::load($load);
 
 $router = new Router();
 
-$router->get('/', 'PageController::code');
-$router->get('/score', 'PageController::score');
+$router->get('/code', 'PageController::code');
+$router->get('/', 'PageController::score');
 $router->get('/search/{name}', 'PhpController::search');
 $router->get('/top/{number}', 'PhpController::top');
 
