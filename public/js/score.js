@@ -27,13 +27,52 @@ var main = function() {
 	});
 
 	$("#search").click(function() {
-		console.log(url + 'recherche/' + $('#name').val());
+		$('.disabled').removeClass('disabled');
 		$.ajax({
-			url: url + 'recherche/' + $('#name').val(),
+			url: url + 'search/' + $('#name').val(),
 			method: 'GET',
-			dataType: 'text',
+			dataType: 'json',
 			success: function(data) {
-				console.log(data);
+				if (data["position"] !== 0) {
+					$("tbody").empty();
+					for (var i = (data["hight"].length - 1); i >= 0; i--) {
+						var tr = "<tr>" +
+							"<td>" + (data["position"] - (i + 1)) + "</td>" +
+							"<td>" + data["hight"][i]['name'] + "</td>" +
+							"<td>" + data["hight"][i]['dp_mp'] + "</td>" +
+							"<td>" + data["hight"][i]['dp_mg'] + "</td>" +
+							"<td>" + data["hight"][i]['dg_mp'] + "</td>" +
+							"<td>" + data["hight"][i]['dg_mg'] + "</td>" +
+							"<td>" + data["hight"][i]['score'] + "</td>" +
+							"<td>" + data["hight"][i]['created_at'] + "</td>" +
+							"</tr>";
+						$("tbody").append($(tr));
+					}
+					var player = "<tr style=\"background-color: #99ff99;\">" +
+						"<td>" + data["position"] + "</td>" +
+						"<td>" + data["player"]['name'] + "</td>" +
+						"<td>" + data["player"]['dp_mp'] + "</td>" +
+						"<td>" + data["player"]['dp_mg'] + "</td>" +
+						"<td>" + data["player"]['dg_mp'] + "</td>" +
+						"<td>" + data["player"]['dg_mg'] + "</td>" +
+						"<td>" + data["player"]['score'] + "</td>" +
+						"<td>" + data["player"]['created_at'] + "</td>" +
+						"</tr>";
+					$("tbody").append($(player));
+					for (var i = 0; i < data["lower"].length; i++) {
+						var tr = "<tr>" +
+							"<td>" + (data["position"] + (i + 1)) + "</td>" +
+							"<td>" + data["lower"][i]['name'] + "</td>" +
+							"<td>" + data["lower"][i]['dp_mp'] + "</td>" +
+							"<td>" + data["lower"][i]['dp_mg'] + "</td>" +
+							"<td>" + data["lower"][i]['dg_mp'] + "</td>" +
+							"<td>" + data["lower"][i]['dg_mg'] + "</td>" +
+							"<td>" + data["lower"][i]['score'] + "</td>" +
+							"<td>" + data["lower"][i]['created_at'] + "</td>" +
+							"</tr>";
+						$("tbody").append($(tr));
+					}
+				}
 			}
 		});
 	});
