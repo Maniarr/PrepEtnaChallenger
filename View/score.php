@@ -6,21 +6,6 @@
     <link rel="stylesheet" href="<?php $this->asset('css/foundation.min.css') ?>" charset="utf-8">
     <link rel="stylesheet" href="<?php $this->asset('css/app.css') ?>" charset="utf-8">
     <title>Prep'ETNA Challenger</title>
-	<style>
-		.callout {
-			margin-top: 20px;
-
-		}
-		h2 {
-			text-align: center;
-		}
-		h3 {
-			text-align: center;
-		}
-		table {
-			width: 100%;
-		}
-	</style>
   </head>
   <body>
 

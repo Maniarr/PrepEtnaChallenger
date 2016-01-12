@@ -1,132 +1,146 @@
+body {
+	background-color: #333;
+}
+
+.top-bar {
+	background-color: #ffad33;
+}
+
 .callout {
-  margin-top: 20px;
+	margin-top: 20px;
 
 }
+
 h2 {
-  text-align: center;
+	text-align: center;
 }
+
 h3 {
-  text-align: center;
+	color: white;
+	text-align: center;
+	font-size: 3em;
+	font-family: Helvetica, sans-serif;
 }
+
 table {
-  width: 100%;
+	width: 100%;
 }
 
 .centered
 {
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 16px;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 16px;
 }
 
 .console-background
 {
-  background: #3E4547;
+	background: #3E4547;
 }
 .console
 {
-  background-color: transparent;
-  color: #fff;
-  font-size: 1em;
+	background-color: transparent;
+	color: #fff;
+	font-size: 1em;
 }
 
 @keyframes code_animation_inverted
 {
-  from {width: 50%;}
-  to {width: 100%;}
+	from {width: 50%;}
+	to {width: 100%;}
 }
 @-webkit-keyframes code_animation_inverted
 {
-  from {width: 50%;}
-  to {width: 100%;}
+	from {width: 50%;}
+	to {width: 100%;}
 }
 @-moz-keyframes code_animation_inverted
 {
-  from {width: 50%;}
-  to {width: 100%;}
+	from {width: 50%;}
+	to {width: 100%;}
 }
 @-o-keyframes code_animation_inverted
 {
-  from {width: 50%;}
-  to {width: 100%;}
+	from {width: 50%;}
+	to {width: 100%;}
 }
 .code_anim_inverted
 {
-  animation: 0.25s code_animation_inverted linear;
-  -webkit-animation: 0.25s code_animation_inverted linear;
-  -moz-animation: 0.25s code_animation_inverted linear;
-  -o-animation: 0.25s code_animation_inverted linear;
+	animation: 0.25s code_animation_inverted linear;
+	-webkit-animation: 0.25s code_animation_inverted linear;
+	-moz-animation: 0.25s code_animation_inverted linear;
+	-o-animation: 0.25s code_animation_inverted linear;
 }
 
 @keyframes code_animation
 {
-  from {width: 100%;}
-  to {width: 50%;}
+	from {width: 100%;}
+	to {width: 50%;}
 }
 @-webkit-keyframes code_animation
 {
-  from {width: 100%;}
-  to {width: 50%;}
+	from {width: 100%;}
+	to {width: 50%;}
 }
 @-moz-keyframes code_animation
 {
-  from {width: 100%;}
-  to {width: 50%;}
+	from {width: 100%;}
+	to {width: 50%;}
 }
 @-o-keyframes code_animation
 {
-  from {width: 100%;}
-  to {width: 50%;}
+	from {width: 100%;}
+	to {width: 50%;}
 }
 .code_anim
 {
-  animation: 0.25s code_animation linear;
-  -webkit-animation: 0.25s code_animation linear;
-  -moz-animation: 0.25s code_animation linear;
-  -o-animation: 0.25s code_animation linear;
+	animation: 0.25s code_animation linear;
+	-webkit-animation: 0.25s code_animation linear;
+	-moz-animation: 0.25s code_animation linear;
+	-o-animation: 0.25s code_animation linear;
 }
 
 @keyframes show_output
 {
-  from {width: 0;}
-  to {width: 50%;}
+	from {width: 0;}
+	to {width: 50%;}
 }
 @-webkit-keyframes show_output
 {
-  from {width: 0;}
-  to {width: 50%;}
+	from {width: 0;}
+	to {width: 50%;}
 }
 @-moz-keyframes show_output
 {
-  from {width: 0;}
-  to {width: 50%;}
+	from {width: 0;}
+	to {width: 50%;}
 }
 @-o-keyframes show_output
 {
-  from {width: 0;}
-  to {width: 50%;}
+	from {width: 0;}
+	to {width: 50%;}
 }
 .output-show
 {
-  display: block;
-  animation: 0.25s show_output linear;
-  -webkit-animation: 0.25s show_output linear;
-  -moz-animation: 0.25s show_output linear;
-  -o-animation: 0.25s show_output linear;
+	display: block;
+	animation: 0.25s show_output linear;
+	-webkit-animation: 0.25s show_output linear;
+	-moz-animation: 0.25s show_output linear;
+	-o-animation: 0.25s show_output linear;
 }
 
 .output-hidden
 {
-  display: none;
+	display: none;
 }
 
 .console:focus, .console:disabled
 {
-  background-color: #3E4547;
+	background-color: #3E4547;
 }
 
 .waiter img
 {
-  display: block;
-  margin: 0 auto;
+	display: block;
+	margin: 0 auto;
 }
