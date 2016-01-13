@@ -39,6 +39,8 @@
 			</div>
 			<hr>
 		</div>
+		<p>Nous effectuons les tests sur différentes catégories de taille.<br>
+		* D: Dictionnaire, M: Message, P: Petit, G, Grand</p>
 		<div class="row">
 			<div class="large-12 columns">
 				<table>
