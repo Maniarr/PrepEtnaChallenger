@@ -5,11 +5,16 @@ $(document).ready(function()
   {
     if ($('textarea').val() != '' && $('input[name=login]').val() != '')
     {
-      set_code();
-      show_output();
-      $('.waiter').show();
-      $('#output textarea').hide();
-      $('button[name=submit]').hide();
+	    var nameCorrection = "/[a-z]{3,8}_[a-z]{1}$/";
+	    if ($('input[name=login]').val().match(/[a-z]{3,8}_[a-z]{1}$/)) {
+		    set_code();
+		    show_output();
+		    $('.waiter').show();
+		    $('#output textarea').hide();
+		    $('button[name=submit]').hide();
+	    }
+	    else
+		    $('#error').text("Entrez un login correct");
     }
   });
 
