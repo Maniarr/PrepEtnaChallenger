@@ -17,6 +17,7 @@ class Route
 
   function	equal_url($url)
   {
+    $url = explode('?', $url)[0];
     $original = explode('/', $this->url);
     if (strlen($url) > 1 && $url[strlen($url) - 1] == '/')
         $url = substr($url, 0, -1);

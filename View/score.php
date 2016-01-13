@@ -67,10 +67,6 @@
 	</div>
 </div>
 
-<?php
-echo $_GET['name'];
-?>
-
 <script type="text/javascript">
 var url = '<?php $this->url(''); ?>';
 </script>

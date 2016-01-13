@@ -1,5 +1,4 @@
 var main = function() {
-
 	var showTop = function(number) {
 		$.ajax({
 			url: url + 'top/' + number,
@@ -26,10 +25,11 @@ var main = function() {
 
 	showTop(10);
 
+
 	var search = function(name) {
 		$('.disabled').removeClass('disabled');
 		$.ajax({
-			url: url + 'search/' + $('#name').val(),
+			url: url + 'search/' + name,
 			method: 'GET',
 			dataType: 'json',
 			success: function(data) {
@@ -90,6 +90,11 @@ var main = function() {
 	$("#challenge").click(function() {
 		$(location).attr('href', url + 'code');
 	});
+	console.log(window.location.href.split('?')[1] );
+
+	if (window.location.href.split('?')[1] !== undefined)
+		search(window.location.href.split('?')[1]);
+
 
 };
 

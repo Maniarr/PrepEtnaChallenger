@@ -17,7 +17,7 @@ class PhpController extends Controller
 
     if (!$dp_mp || !$dp_mg || !$dg_mp || !$dg_mg)
     {
-        echo json_encode('false');
+        echo 'false';
         return;
     }
 
@@ -57,15 +57,15 @@ class PhpController extends Controller
       ));
     }
 
-    echo json_encode('true');
-
-    unlink($file_name);
-    unlink($file_name.'out');
+    echo 'true';
+    
+    exec('rm '.$file_name);
+    exec('rm '.$file_name.'out');
   }
 
   private function get_average_execute($file_name, $params, $step)
   {
-    $nb_loop = 20;
+    $nb_loop = 15;
     $time_exec = 0;
     $error = false;
 
@@ -81,15 +81,14 @@ class PhpController extends Controller
 
       $verif = shell_exec('cat '.$file_name.'out | wc -l');
 
-      if ($step == 1 && intval($verif) != 6)
+      if ($step == 1 && intval($verif) < 4)
         $error = true;
-      if ($step == 2 && intval($verif) != 74)
+      if ($step == 2 && intval($verif) < 70)
         $error = true;
-      if ($step == 3 && intval($verif) != 9)
+      if ($step == 3 && intval($verif) < 7)
         $error = true;
       if ($step == 4 && intval($verif) < 37000 || intval($verif) > 41000)
         $error = true;
-
     }
     if ($error)
       return (false);

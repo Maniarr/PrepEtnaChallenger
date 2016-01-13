@@ -33,14 +33,14 @@ $(document).ready(function()
     $.ajax({
        url: url + 'code',
        method: 'POST',
-       dataType: 'json',
+       //dataType: 'json',
        data: {name: $('input[name=login]').val(),code: $('textarea').val()},
        success: function(data)
        {
-         console.log(data);
          $('#output textarea').show();
          write_output(data);
          $('.waiter').hide();
+
          if (data == 'false')
          {
            $('button[name=submit]').show();
@@ -51,7 +51,7 @@ $(document).ready(function()
            $('#error').text('Votre script PHP présente des erreurs !');
          }
          else
-          $(location).attr('href', url + '?name=' + $('input[name=login]').val());
+          $(location).attr('href', url + '?' + $('input[name=login]').val());
        }
      });
   }

@@ -33,12 +33,12 @@
           <textarea name="name" rows="20" cols="40" required></textarea>
         </div>
       </div>
-      <div class="columns medium-6 output-hidden">
+      <div class="columns medium-6 output-hidden" style="background-color: #fff;">
         <div id="output" class="console-background">
         </div>
         <div class="waiter center">
           <p  style="text-align: center;">
-            Les test peuvent durer jusqu'a 5 minutes.
+            Les tests peuvent durer jusqu'a 5 minutes.
           </p>
           <img src="<?php $this->asset('img/loader.gif') ?> " alt="" />
         </div>
