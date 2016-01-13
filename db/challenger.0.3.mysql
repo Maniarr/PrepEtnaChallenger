@@ -18,13 +18,3 @@ ALTER TABLE `projet_nox`
 
 ALTER TABLE `projet_nox`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
-INSERT INTO projet_nox(name, dp_mp, dp_mg, dg_mp, dg_mg, score)
-VALUES ('Flavien', '0.032s', '0.052s', '0.017s', '0.093s', '0.043s'),
-('Nico', '0.012s', '0.023s', '0.032s', '0.732s', '0.19975s'),
-('Sayf', '0.012s', '0.023s', '0.032s', '0.732s', '0.1997s'),
-('Armand', '0.012s', '0.023s', '0.032s', '0.732s', '0.1975s'),
-('Baptiste', '0.012s', '0.023s', '0.032s', '0.732s', '0.9975s'),
-('Tristan', '0.012s', '0.023s', '0.032s', '0.732s', '0.5s'),
-('Louis', '0.012s', '0.023s', '0.032s', '0.732s', '0.175s'),
-('Loic', '0.012s', '0.023s', '0.032s', '0.732s', '0.75s');
