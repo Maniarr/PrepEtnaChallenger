@@ -21,6 +21,9 @@
     </div>
     <div class="row">
     <div class="columns medium-12">
+      <p class="center" style="color: #fff">
+        Vous devez remplir les 2 champs.<br>Vous devez mettre les balises php.<br>S'il y a une erreur cela signifie soit que votre code ne fonctionne pas, soit le résultat attendu est faux.
+      </p>
       <p id="error" class="center" style="text-align: center; color: red">
 
       </p>

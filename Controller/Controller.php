@@ -5,10 +5,10 @@ class Controller
   public $db;
 
   function  __construct() {
-    $host     = '10.104.1.25';
+    $host     = 'localhost';
     $port     = 3306;
     $dbname   = 'challenger';
-    $username = 'aiko';
+    $username = 'zoidberg';
     $password = 'password';
     $this->db = new PDO('mysql:host='.$host.';port='.$port.';dbname='.$dbname, $username, $password);
   }

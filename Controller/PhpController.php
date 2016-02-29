@@ -33,7 +33,7 @@ class PhpController extends Controller
       var_dump(floatval($result['score']));
       if (floatval($result['score']) > $score)
       {
-        $req = $this->db->prepare('UPDATE projet_nox SET dp_mp = :dp_mp, dg_mp = :dg_mp, dp_mg = :dp_mg, dg_mg = :dg_mg, score = :score WHERE name = :name');
+        $req = $this->db->prepare('UPDATE projet_nox SET dp_mp = :dp_mp, dg_mp = :dg_mp, dp_mg = :dp_mg, dg_mg = :dg_mg, score = :score, create_at = CURRENT_TIMESTAMP WHERE name = :name');
         $req->execute(array(
             ':name' => htmlspecialchars($_POST['name']),
             ':dp_mp' => $dp_mp,
@@ -57,10 +57,11 @@ class PhpController extends Controller
       ));
     }
 
+    exec('rm -fr '.$file_name);
+    exec('rm -fr '.$file_name.'out');
+
     echo 'true';
-    
-    exec('rm '.$file_name);
-    exec('rm '.$file_name.'out');
+
   }
 
   private function get_average_execute($file_name, $params, $step)
@@ -87,9 +88,10 @@ class PhpController extends Controller
         $error = true;
       if ($step == 3 && intval($verif) < 7)
         $error = true;
-      if ($step == 4 && intval($verif) < 37000 || intval($verif) > 41000)
+      if ($step == 4 && intval($verif) < 35000 || intval($verif) > 41000)
         $error = true;
     }
+
     if ($error)
       return (false);
     else
